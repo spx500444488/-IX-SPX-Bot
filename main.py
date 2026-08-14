@@ -87,7 +87,7 @@ def health():
 async def telegram_webhook():
     update = Update.de_json(request.get_json(force=True), telegram_app.bot)
     import asyncio
-    await telegram_app.process_update(...)
+    await telegram_app.process_update(update)
     return "ok", 200
 
 
