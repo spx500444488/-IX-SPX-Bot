@@ -83,9 +83,12 @@ telegram_app.add_handler(CallbackQueryHandler(button))
 def health():
     return "IX SPX is online", 200
 
-@app@app.post("/telegram")
+@app.post("/telegram")
 def telegram_webhook():
-    update = Update.de_json(request.get_json(force=True), telegram_app.bot)
+    update = Update.de_json(
+        request.get_json(force=True),
+        telegram_app.bot
+    )
 
     async def handle():
         await telegram_app.initialize()
