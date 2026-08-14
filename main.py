@@ -84,7 +84,7 @@ def health():
     return "IX SPX is online", 200
 
 @app.post("/telegram")
-def telegram_webhook():
+async def telegram_webhook():
     update = Update.de_json(request.get_json(force=True), telegram_app.bot)
     import asyncio
     await telegram_app.process_update(...)
